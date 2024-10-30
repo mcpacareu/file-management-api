@@ -7,6 +7,9 @@
     "test:integration": "jest src/__tests__/integration --forceExit --detectOpenHandles",
     "start": "node server.js"
   },
+  "jest": {
+    "setupFiles": ["./jest.setup.js"]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
