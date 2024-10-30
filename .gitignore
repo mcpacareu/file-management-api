@@ -1,0 +1,24 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Environment variables file (do not commit secrets to version control)
+.env
+
+# Logs
+logs/
+*.log
+logs/*
+
+# Temporary storage directories
+storage/uploads/
+storage/encrypted/
+storage/decrypted/
+storage/temp_decrypted/
+
+# OS-specific files
+.DS_Store             # macOS
+Thumbs.db             # Windows

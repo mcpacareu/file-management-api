@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: .
+    ports:
+        - "5000:5000"
+    environment:
+      MONGO_URI: mongodb://mongo:27017/file_management
+    depends_on:
+      - mongo
+    volumes:
+      - .:/app
+    container_name: file-management-api
+    restart: always
+    # deploy:
+    #   replicas: 5
+    #   resources:
+    #     limits:
+    #       cpus: "0.5"
+    #       memory: 512M
+    #   restart_policy:
+    #     condition: on-failure
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    container_name: mongodb
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:

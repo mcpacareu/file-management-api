@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: file-management-api
+spec:
+  replicas: 3 # Adjust the number of replicas according to the load
+  selector:
+    matchLabels:
+      app: file-management-api
+  template:
+    metadata:
+      labels:
+        app: file-management-api
+    spec:
+      containers:
+      - name: api
+        image: file-management-api:latest
+        ports:
+        - containerPort: 5000
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "0.5"
+        env:
+        - name: MONGO_URI
+          value: "mongodb://mongo-service:27017/file_management"
